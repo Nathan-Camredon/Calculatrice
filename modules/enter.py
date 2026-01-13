@@ -1,9 +1,9 @@
 
-a = (input("Entrez une operation :  "))
-tokens = a.split()
+inc = (input("Entrez une operation :  "))
+tokens = inc.split()
 
-def analyse_chiffre(token):
-    """Permet de vérifier si c'est un float ou un int ou string"""
+def scan_number(token):
+    """Allows you to check if it's a float, an int, or a string"""
     try:
         return int(token)
     except ValueError:
@@ -14,6 +14,5 @@ def analyse_chiffre(token):
 
 tokens_analyse = []
 for token in tokens:
-    tokens_analyse.append(analyse_chiffre(token))
+    tokens_analyse.append(scan_number(token))
 print(tokens_analyse)
-
