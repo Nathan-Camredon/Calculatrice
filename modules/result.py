@@ -9,7 +9,7 @@ def parenthesis(H):
                 j += 1 
                 if j < len(H) and H[j] == ")":
                     E = H[i+1:j] 
-                    res = result1(E)[0] 
+                    res = prep_c(E)[0] 
                     
                     H = H[:i] + [res] + H[j+1:]
                     return H
