@@ -11,6 +11,7 @@ def scan_number(token):
             return token
 
 def number_inc():
+    """Input for number and check if operator is first """
     inc = (input("Entrez une operation :  "))
     inc = add_space(inc)
     if inc[0] in operator:
@@ -24,6 +25,7 @@ def number_inc():
     print(tokens_analyse)
 
 def add_space(a):
+    """Add space between number and operator"""
     result = ""
     for c in a:
         if c in operator:
