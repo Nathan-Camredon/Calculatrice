@@ -1,0 +1,54 @@
+# =========================
+# Python cache / compilé
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# =========================
+# Environnements virtuels
+# =========================
+venv/
+.env/
+.env*/
+.venv/
+
+# =========================
+# IDE / éditeurs
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Logs & fichiers temporaires
+# =========================
+*.log
+*.tmp
+
+# =========================
+# Tests / coverage
+# =========================
+.coverage
+htmlcov/
+.pytest_cache/
+
+# =========================
+# Distribution / build
+# =========================
+build/
+dist/
+*.egg-info/
+
+# =========================
+# Fichiers personnels (optionnel)
+# =========================
+input.txt
+output.txt
