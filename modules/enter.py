@@ -16,7 +16,7 @@ def number_inc():
     tokens_analyse = []
     for token in tokens:
         tokens_analyse.append(scan_number(token))
-    print(tokens_analyse)
+    return tokens_analyse
 
 def erase():
     try:

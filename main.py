@@ -1,8 +1,13 @@
 #---------------------------
 #         Import 
 #---------------------------
-
-
+from modules.enter import number_inc
+from modules.result import result
 #---------------------------
 #         Fonction
 #---------------------------
+def main():
+    while True:
+        L = number_inc()
+        result(L)
+main()
