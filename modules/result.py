@@ -1,4 +1,3 @@
-L = [12 , "+", 12, "/", 12, "*", 12, "-", 12, "*", "(", 12, "+", 12, ")"]
 
 def parenthesis(H):
     i = 0
@@ -48,6 +47,3 @@ def result(L):
     L = parenthesis(L) 
     L = prep_c(L)
     print("Résultat final :", L[0])
-
-
-result(L)
