@@ -1,4 +1,13 @@
-operator = "+-*/()"
+import keyboard
+
+operator = "+*/-"+"rad"+"cos"+"tan"
+
+print("\n \n~~ Pour afficher les opération possibles veuillez taper sur la touche A de votre clavier ~~\n \n ")
+
+def press_key():
+    print("\n\nVous pouvez utiliser : PI | % | carre | rad | sin | cos | tan")
+keyboard.add_hotkey("a", press_key)
+
 
 def scan_number(token):
     """Allows you to check if it's a float, an int, or a string"""
@@ -11,6 +20,7 @@ def scan_number(token):
             return token
 
 def number_inc():
+    """Input for number and check if operator is first """
     inc = (input("Entrez une operation :  "))
     inc = add_space(inc)
     if not inc or inc.isspace():
@@ -27,6 +37,7 @@ def number_inc():
     return tokens_analyse
 
 def add_space(a):
+    """Add space between number and operator"""
     result = ""
     for c in a:
         if c in operator:
