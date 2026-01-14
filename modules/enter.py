@@ -1,4 +1,13 @@
-operator = "+-*/()"
+import keyboard
+
+operator = "+*/-"+"rad"+"cos"+"tan"
+
+print("\n \n~~ Pour afficher les opération possibles veuillez taper sur la touche A de votre clavier ~~\n \n ")
+
+def press_key():
+    print("\n\nVous pouvez utiliser : PI | % | carre | rad | sin | cos | tan")
+keyboard.add_hotkey("a", press_key)
+
 
 def scan_number(token):
     """Allows you to check if it's a float, an int, or a string"""
