@@ -7,7 +7,10 @@ from modules.result import result
 #         Fonction
 #---------------------------
 def main():
-    while True:
-        L = number_inc()
-        result(L)
+    try:
+        while True:
+            L = number_inc()
+            result(L)
+    except KeyboardInterrupt:
+        print("\nAu revoir !")
 main()
