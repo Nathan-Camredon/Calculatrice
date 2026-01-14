@@ -1,5 +1,5 @@
 #---------------------------
-#         Import 
+#         Import
 #---------------------------
 from modules.comp_op import sin, cos, tan, percent, rad
 
@@ -57,7 +57,7 @@ def prep_c(A):
             i += 1
     i = 0
     while i < (len(A)):
-        if A[i] == "/" or A[i] == "*": 
+        if A[i] == "/" or A[i] == "*":
             try:
                 C = 0
                 if A[i] == "/":
@@ -65,37 +65,39 @@ def prep_c(A):
                 if A[i] == "*":
                     C = A[i-1] * A[i+1]
                 A = A[:i-1] + [C] + A[i+2:]
-                i -= 1 
+                i -= 1
             except:
                 print("Division par 0 impossible")
                 return False
         else:
             i += 1
-    i = 0 
+    i = 0
     while i < (len(A)):
-        if A[i] == "+" or A[i] == "-":
+        if A[i] == "+" or A[i] == "-" or A[i] == "%":
             C = 0
             if A[i] == "+":
                 C = A[i-1] + A[i+1]
             if A[i] == "-":
                 C = A[i-1] - A[i+1]
+            if A[i] == "%":
+                C = A[i-1] % A[i+1]
             A = A[:i-1] + [C] + A[i+2:]
             i -= 1
         else:
-            i += 1 
-    i = 0 
+            i += 1
+    i = 0
     while i < (len(A)):
         if A[i] == "percent":
             C = percent(A[i-1], A[i+1])
             A = A[:i-1] + [C] + A[i+2:]
         else:
-            i += 1  
+            i += 1
     return A
 
 def result(L):
     L = parenthesis(L)
     L = prep_c(L)
-    
+
     if L:
         print("Résultat final :", L[0])
         return L
