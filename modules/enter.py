@@ -13,14 +13,17 @@ def scan_number(token):
 def number_inc():
     inc = (input("Entrez une operation :  "))
     inc = add_space(inc)
-    if inc[0] in operator:
-        print("Erreur : pas d'opérateur en premier ! ")
-        return
+    if not inc or inc.isspace():
+        return []
+
     tokens = inc.split()
 
     tokens_analyse = []
     for token in tokens:
         tokens_analyse.append(scan_number(token))
+    
+    if tokens_analyse and (tokens_analyse[0] == "+" or tokens_analyse[0] == "-"):
+        tokens_analyse.insert(0, 0)
     return tokens_analyse
 
 def add_space(a):

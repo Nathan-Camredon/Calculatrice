@@ -26,29 +26,49 @@ def prep_c(A):
     i = 0
     while i < (len(A)):
         if A[i] == "sin":
-            C = sin(rad(A[i+1]))
-            A = A[:i] + [C] + A[i+2:]
+            try:
+                C = sin(rad(A[i+1]))
+                A = A[:i] + [C] + A[i+2:]
+            except:
+                print("Erreur de valeur de sinus")
+                return False
         elif A[i] == "cos":
-            C = cos(rad(A[i+1]))
-            A = A[:i] + [C] + A[i+2:]
+            try:
+                C = cos(rad(A[i+1]))
+                A = A[:i] + [C] + A[i+2:]
+            except:
+                print("Erreur de valeur de cosinus")
+                return False
         elif A[i] == "tan":
-            C = tan(A[i+1])
-            A = A[:i] + [C] + A[i+2:]
+            try:
+                C = tan(A[i+1])
+                A = A[:i] + [C] + A[i+2:]
+            except:
+                print("valeur de tangeante invalide")
+                return False
         elif A[i] == "rad":
-            C = rad(A[i+1])
-            A = A[:i] + [C] + A[i+2:]
+            try:
+                C = rad(A[i+1])
+                A[:i] + [C] + A[i+2:]
+            except:
+                print("Erreur de valeur de radiant")
+                return False
         else:
             i += 1
     i = 0
     while i < (len(A)):
         if A[i] == "/" or A[i] == "*": 
-            C = 0
-            if A[i] == "/":
-                C = A[i-1] / A[i+1]
-            if A[i] == "*":
-                C = A[i-1] * A[i+1]
-            A = A[:i-1] + [C] + A[i+2:]
-            i -= 1 
+            try:
+                C = 0
+                if A[i] == "/":
+                    C = A[i-1] / A[i+1]
+                if A[i] == "*":
+                    C = A[i-1] * A[i+1]
+                A = A[:i-1] + [C] + A[i+2:]
+                i -= 1 
+            except:
+                print("Division par 0 impossible")
+                return False
         else:
             i += 1
     i = 0 
@@ -73,6 +93,9 @@ def prep_c(A):
     return A
 
 def result(L):
-    L = parenthesis(L) 
+    L = parenthesis(L)
     L = prep_c(L)
-    print("Résultat final :", L[0])
+    
+    if L:
+        print("Résultat final :", L[0])
+        return L
