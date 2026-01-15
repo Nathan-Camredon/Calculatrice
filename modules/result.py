@@ -16,32 +16,32 @@ def parenthesis(H):
             if i == -1:
                 break
             E = H[i+1:j]
-            res = prep_c(E)[0]
+            res = calculator(E)[0]
             H = H[:i] + [res] + H[j+1:]
         except ValueError:
             break
     return H
 
-def prep_c(A):
+def calculator(A):
     i = 0
     while i < (len(A)):
         if A[i] == "sin":
             try:
-                C = sin(rad(A[i+1]))
+                C = sin((A[i+1]))
                 A = A[:i] + [C] + A[i+2:]
             except:
                 print("Erreur de valeur de sinus")
                 return False
         elif A[i] == "cos":
             try:
-                C = cos(rad(A[i+1]))
+                C = cos((A[i+1]))
                 A = A[:i] + [C] + A[i+2:]
             except:
                 print("Erreur de valeur de cosinus")
                 return False
         elif A[i] == "tan":
             try:
-                C = tan(A[i+1])
+                C = tan((A[i+1]))
                 A = A[:i] + [C] + A[i+2:]
             except:
                 print("valeur de tangeante invalide")
@@ -66,7 +66,7 @@ def prep_c(A):
                     C = A[i-1] * A[i+1]
                 A = A[:i-1] + [C] + A[i+2:]
                 i -= 1 
-            except:
+            except ZeroDivisionError:
                 print("Division par 0 impossible")
                 return False
         else:
@@ -85,7 +85,7 @@ def prep_c(A):
             i += 1 
     i = 0 
     while i < (len(A)):
-        if A[i] == "percent":
+        if A[i] == "%":
             C = percent(A[i-1], A[i+1])
             A = A[:i-1] + [C] + A[i+2:]
         else:
@@ -94,7 +94,7 @@ def prep_c(A):
 
 def result(L):
     L = parenthesis(L)
-    L = prep_c(L)
+    L = calculator(L)
     
     if L:
         print("Résultat final :", L[0])
