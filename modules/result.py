@@ -43,36 +43,39 @@ def prep_c(A):
     """
     i = 0
     while i < (len(A)):
-        if A[i] == "sin":
+        if A[i] in ["sin", "cos", "tan", "rad"]:
+            if i + 1 >= len(A):
+                 print(f"Erreur de syntaxe: {A[i]} sans valeur")
+                 return False
+            
             try:
-                C = sin(rad(A[i+1]))
+                if A[i] == "sin":
+                    C = sin(rad(A[i+1]))
+                elif A[i] == "cos":
+                    C = cos(rad(A[i+1]))
+                elif A[i] == "tan":
+                    C = tan(A[i+1])
+                elif A[i] == "rad":
+                    C = rad(A[i+1])
                 A = A[:i] + [C] + A[i+2:]
             except:
-                print("Erreur de valeur de sinus")
-                return False
-        elif A[i] == "cos":
-            try:
-                C = cos(rad(A[i+1]))
-                A = A[:i] + [C] + A[i+2:]
-            except:
-                print("Erreur de valeur de cosinus")
-                return False
-        elif A[i] == "tan":
-            try:
-                C = tan(A[i+1])
-                A = A[:i] + [C] + A[i+2:]
-            except:
-                print("valeur de tangeante invalide")
-                return False
-        elif A[i] == "rad":
-            try:
-                C = rad(A[i+1])
-                A = A[:i] + [C] + A[i+2:]
-            except:
-                print("Erreur de valeur de radiant")
+                print(f"Erreur de calcul pour {A[i]}")
                 return False
         else:
             i += 1
+
+    i = 0
+    while i < (len(A)):
+        if A[i] == "percent":
+            if i == 0 or i >= len(A) - 1:
+                 print("Erreur de syntaxe pour percent")
+                 return False
+            C = percent(A[i-1], A[i+1])
+            A = A[:i-1] + [C] + A[i+2:]
+            i -= 1
+        else:
+            i += 1 
+
     i = 0
     while i < (len(A)):
         if A[i] == "/" or A[i] == "*": 
@@ -116,13 +119,6 @@ def prep_c(A):
             except:
                 print("Erreur dans + ou -")
                 return False
-        else:
-            i += 1 
-    i = 0 
-    while i < (len(A)):
-        if A[i] == "percent":
-            C = percent(A[i-1], A[i+1])
-            A = A[:i-1] + [C] + A[i+2:]
         else:
             i += 1  
     return A
