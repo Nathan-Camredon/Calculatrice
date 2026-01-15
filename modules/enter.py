@@ -1,6 +1,6 @@
 import keyboard
 
-operator = "+*/-"+"rad"+"cos"+"tan"
+operator = "+*/-"
 
 print("\n \n~~ Pour afficher les opération possibles veuillez taper sur la touche A de votre clavier ~~\n \n ")
 
