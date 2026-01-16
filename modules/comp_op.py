@@ -1,4 +1,4 @@
-PI = 3.141592653589793
+PI = 3.141592
 
 def percent(valor, rate):
     return valor * rate / 100

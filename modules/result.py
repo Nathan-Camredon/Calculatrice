@@ -25,13 +25,13 @@ def parenthesis(H):
             if i == -1:
                 break
             E = H[i+1:j]
-            res = prep_c(E)[0]
+            res = calculator(E)[0]
             H = H[:i] + [res] + H[j+1:]
         except ValueError:
             break
     return H
 
-def prep_c(A):
+def calculator(A):
     """
     Performs calculations on the list expression, handling trigonometry and arithmetic operations.
 
@@ -120,7 +120,7 @@ def prep_c(A):
                 print("Erreur dans + ou -")
                 return False
         else:
-            i += 1  
+            i += 1 
     return A
 
 def result(L):
@@ -134,7 +134,7 @@ def result(L):
         list: The final result of the calculation.
     """
     L = parenthesis(L)
-    L = prep_c(L)
+    L = calculator(L)
     
     if L:
         print("Résultat final :", L[0])
